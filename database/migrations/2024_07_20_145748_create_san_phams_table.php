@@ -25,7 +25,7 @@ return new class extends Migration
 
             $table->text('noi_dung')->nullable();
             $table->unsignedInteger('so_luong');
-            $table->unsignedBigInteger('luot_xem');
+            $table->unsignedBigInteger('luot_xem')->default(0);
             $table->date('ngay_nhap');
             $table->foreignIdFor(DanhMuc::class)->constrained();
 

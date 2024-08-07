@@ -22,7 +22,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <h5 class="card-title mb-0">{{$title}}</h5>
-                    <a href="{{route('admins.danhmucs.create')}}" class="btn btn-success">Thêm Danh Mục </a>
+                    <a href="{{route('admins.sanphams.create')}}" class="btn btn-success">Thêm Sản Phẩm </a>
                 </div><!-- end card header -->
                 <div class="row">
                     <div class="card-body">
@@ -39,26 +39,42 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
+                                        <th scope="col">Mã sản phẩm</th>
                                         <th scope="col">Hình ảnh</th>
-                                        <th scope="col">Tên danh mục</th>
+                                        <th scope="col">Tên sản phẩm</th>
+
+                                        <th scope="col">Danh mục</th>
+                                        <th scope="col">Giá sản phẩm</th>
+                                        <th scope="col">Giá khuyến mãi</th>
+                                        <th scope="col">Số lượng </th>
                                         <th scope="col">Trạng Thái </th>
                                         <th scope="col">Hành Động </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($listDanhMuc as $index => $item)
+                                    @foreach ($listSanPham as $index => $item)
                                     <tr>
-                                        <th scope="row">{{$index + 1}}</th>
+                                        <td></td>
+                                        <td scope="row">{{$item->ma_san_pham}}</td>
+
                                         <td>
-                                            <img src="{{ Storage::url($item->hinh_anh) }}" width="300px" alt="">
+                                            <img src="{{ Storage::url($item->hinh_anh) }}" width="120px" alt="">
                                         </td>
-                                        <td>{{$item->ten_danh_muc}}</td>
-                                        <td class="{{ $item->trang_thai ? 'text-success' : 'text-danger' }}">
-                                            {{ $item->trang_thai ? 'Hiển Thị' : 'Ẩn' }}
+                                        <td>{{$item->ten_san_pham}}</td>
+                                        <td>{{$item->danhMuc->ten_danh_muc}}</td>
+                                        <td>{{number_format($item->gia_san_pham)}}</td>
+                                        <td>{{empty($item->gia_khuyen_mai) ? 0 : $item->gia_khuyen_mai}}</td>
+                                        <td>{{$item->so_luong}}</td>
+
+
+                                        <td class="{{ $item->is_type ? 'text-success' : 'text-danger' }}">
+                                            {{ $item->is_type ? 'Hiển Thị' : 'Ẩn' }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('admins.danhmucs.edit', $item->id) }}"><i class="mdi mdi-pencil text-muted fs-18 rounded-2 border p-1 me-1"></i></a>
-                                            <form action="{{ route('admins.danhmucs.destroy', $item->id) }}" method="POST" style="display:inline;" onsubmit="return confirm ('Bạn có muốn xóa danh mục sản phẩm này không ?') ">
+                                            <a href="{{ route('admins.sanphams.edit', $item->id) }}">
+                                                <i class="mdi mdi-pencil text-muted fs-18 rounded-2 border p-1 me-1"></i>
+                                            </a>
+                                            <form action="{{ route('admins.sanphams.destroy', $item->id) }}" method="POST" style="display:inline;" onsubmit="return confirm ('Bạn có muốn xóa danh mục sản phẩm này không ?') ">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" style="border: none; background: none;">

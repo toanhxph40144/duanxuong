@@ -54,30 +54,22 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="col-sm-10 mb-3 gap-2">
-                                    <label for="trang_thai" class="form-label">Trạng thái</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="trang_thai" id="trang_thai_show" value="1" {{ old('trang_thai') == '1' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="trang_thai_show">Hiển thị</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="trang_thai" id="trang_thai_hide" value="0" {{ old('trang_thai') == '0' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="trang_thai_hide">Ẩn</label>
-                                    </div>
-                                </div> -->
+                
 
-                                <div class="col-sm-10 mb-3 gap-2">
+                                <div class="mb-3">
                                     <label for="trang_thai" class="form-label">Trạng thái</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="trang_thai" id="trang_thai_show" value="1" {{ old('trang_thai') == '1' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="trang_thai_show">Hiển thị</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="trang_thai" id="trang_thai_hide" value="0" {{ old('trang_thai') == '0' ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="trang_thai_hide">Ẩn</label>
+                                    <div class="col-sm-10 mb-3 d-flex gap-2">
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="trang_thai" id="trang_thai_show" value="1" {{ old('trang_thai') == '1' ? 'checked' : '' }}>
+                                            <label class="form-check-label text-success" for="trang_thai_show">Hiển thị</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="trang_thai" id="trang_thai_hide" value="0" {{ old('trang_thai') == '0' ? 'checked' : '' }}>
+                                            <label class="form-check-label text-danger" for="trang_thai_hide">Ẩn</label>
+                                        </div>
                                     </div>
                                 </div>
-
 
                                 <div class="d-flex justify-content-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>
